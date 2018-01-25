@@ -27,5 +27,10 @@ class Employee extends Model
 
         Employee::observe(new \App\Observers\UserActionsObserver);
     }
+
+    public function fullName()
+    {
+    	return $this->first_name . ' ' . $this->last_name;
+    }
     
 }

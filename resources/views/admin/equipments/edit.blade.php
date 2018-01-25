@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.1/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+
     <h3 class="page-title">@lang('quickadmin.equipments.title')</h3>
     
     {!! Form::model($equipment, ['method' => 'PUT', 'route' => ['admin.equipments.update', $equipment->id]]) !!}
@@ -25,6 +27,15 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('color', trans('quickadmin.equipments.fields.color'), ['class' => 'control-label']) !!}
+                    <div id="colorpicker" class="input-group colorpicker-component" title="Using input value">
+                        <span class="input-group-addon"><i></i></span>
+                        {!! Form::text('color', old('color'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('is_available', trans('quickadmin.equipments.fields.is-available').'', ['class' => 'control-label']) !!}
                     {!! Form::hidden('is_available', 0) !!}
                     {!! Form::checkbox('is_available', 1, old('is_available'), []) !!}
@@ -43,4 +54,11 @@
     {!! Form::submit(trans('quickadmin.qa_update'), ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
 @stop
+
+@section('javascript')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.1/js/bootstrap-colorpicker.min.js"></script>
+    <script type="text/javascript">
+        $('#colorpicker').colorpicker();
+    </script>
+@endsection
 

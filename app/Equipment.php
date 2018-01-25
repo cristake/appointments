@@ -22,7 +22,7 @@ class Equipment extends Model
      */
     protected $table = 'equipments';
 
-    protected $fillable = ['name', 'is_available'];
+    protected $fillable = ['name', 'color', 'is_available'];
     
     
     public static function boot()

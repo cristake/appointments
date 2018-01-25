@@ -22,25 +22,27 @@ class EquipmentsController extends Controller
         if (! Gate::allows('equipment_access')) {
             return abort(401);
         }
-
-
         
         if (request()->ajax()) {
             $query = Equipment::query();
             $template = 'actionsTemplate';
+
             if(request('show_deleted') == 1) {
                 
-        if (! Gate::allows('equipment_delete')) {
-            return abort(401);
-        }
+                if (! Gate::allows('equipment_delete')) {
+                    return abort(401);
+                }
                 $query->onlyTrashed();
                 $template = 'restoreTemplate';
             }
+
             $query->select([
                 'equipments.id',
                 'equipments.name',
+                'equipments.color',
                 'equipments.is_available',
             ]);
+
             $table = Datatables::of($query);
 
             $table->setRowAttr([
@@ -54,6 +56,7 @@ class EquipmentsController extends Controller
 
                 return view($template, compact('row', 'gateKey', 'routeKey'));
             });
+            
             $table->editColumn('is_available', function ($row) {
                 return \Form::checkbox("is_available", 1, $row->is_available == 1, ["disabled"]);
             });

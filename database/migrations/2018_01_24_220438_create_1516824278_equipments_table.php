@@ -16,6 +16,7 @@ class Create1516824278EquipmentsTable extends Migration
             Schema::create('equipments', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name');
+                $table->string('color');
                 $table->tinyInteger('is_available')->nullable()->default(1);
                 
                 $table->timestamps();

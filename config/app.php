@@ -76,8 +76,9 @@ return [
      |
      */
 
-     'date_format' => 'd-m-Y',
-     'date_format_js' => 'dd-mm-yy',
+     'date_format' => 'Y-m-d',
+     // 'date_format_js' => 'dd-mm-yy',
+     'date_format_js' => 'yy-mm-dd',
 
     /*
     |--------------------------------------------------------------------------

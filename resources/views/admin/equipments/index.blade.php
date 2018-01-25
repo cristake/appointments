@@ -34,6 +34,7 @@
                         @endcan
 
                         <th>@lang('quickadmin.equipments.fields.name')</th>
+                        <th>@lang('quickadmin.equipments.fields.color')</th>
                         <th>@lang('quickadmin.equipments.fields.is-available')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
@@ -54,11 +55,17 @@
         @endcan
         $(document).ready(function () {
             window.dtDefaultOptions.ajax = '{!! route('admin.equipments.index') !!}?show_deleted={{ request('show_deleted') }}';
-            window.dtDefaultOptions.columns = [@can('equipment_delete')
-                @if ( request('show_deleted') != 1 )
-                    {data: 'massDelete', name: 'id', searchable: false, sortable: false},
-                @endif
-                @endcan{data: 'name', name: 'name'},
+            window.dtDefaultOptions.columns = [
+                @can('equipment_delete')
+                    @if ( request('show_deleted') != 1 )
+                        {data: 'massDelete', name: 'id', searchable: false, sortable: false},
+                    @endif
+                @endcan
+                {data: 'name', name: 'name'},
+                {data: 'color', name: 'color', render : function(data, type, row) {
+                        return '<span><div style="width:30px; height:15px; float:left; margin:3px 5px 0 0; background-color:'+data+';"></div>'+data+'</span>'
+                    }
+                },
                 {data: 'is_available', name: 'is_available'},
                 
                 {data: 'actions', name: 'actions', searchable: false, sortable: false}

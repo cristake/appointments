@@ -18,7 +18,7 @@ class Employee extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['first_name', 'last_name', 'job_title', 'email', 'phone'];
+    protected $fillable = ['first_name', 'last_name', 'job_title', 'email', 'phone', 'department_id'];
     
     
     public static function boot()
@@ -28,9 +28,28 @@ class Employee extends Model
         Employee::observe(new \App\Observers\UserActionsObserver);
     }
 
-    public function fullName()
+    /**
+     * Get the employee's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
     {
-    	return $this->first_name . ' ' . $this->last_name;
+        return "{$this->first_name} {$this->last_name}";
     }
-    
+
+    /**
+     * Set to null if empty
+     * @param $input
+     */
+    public function setDepartmentIdAttribute($input)
+    {
+        $this->attributes['department_id'] = $input ? $input : null;
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id')->withTrashed();
+    } 
+
 }

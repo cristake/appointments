@@ -22,10 +22,10 @@ class UpdateEmployeesRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            
+        return [            
             'first_name' => 'required',
             'last_name' => 'required',
+            'department_id' => 'required',
             'email' => 'required|email|unique:employees,email,'.$this->route('employee'),
         ];
     }

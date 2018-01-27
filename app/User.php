@@ -54,8 +54,15 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'role_id');
     }
     
-    
-    
+    /**
+     * Get the users's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }    
 
     public function sendPasswordResetNotification($token)
     {

@@ -26,14 +26,29 @@ return [
 		],
 	],
 	
+	'employee-management' => [
+		'title' => 'Employee Management',
+		'fields' => [
+		],
+	],
+	
 	'employees' => [
 		'title' => 'Employees',
 		'fields' => [
 			'first-name' => 'First name',
 			'last-name' => 'Last name',
 			'job-title' => 'Job title',
+			'department' => 'Department',
 			'email' => 'Email',
 			'phone' => 'Phone',
+		],
+	],
+	
+	'departments' => [
+		'title' => 'Departments',
+		'fields' => [
+			'name' => 'Name',
+			'employees-count' => 'Employees Count',
 		],
 	],
 	

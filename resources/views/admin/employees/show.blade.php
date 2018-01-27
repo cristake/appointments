@@ -5,7 +5,8 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            @lang('quickadmin.qa_view')
+            {{-- @lang('quickadmin.qa_view') --}}
+            Details for {{ $employee->fullName }}
         </div>
 
         <div class="panel-body table-responsive">
@@ -23,6 +24,10 @@
                         <tr>
                             <th>@lang('quickadmin.employees.fields.job-title')</th>
                             <td field-key='job_title'>{{ $employee->job_title }}</td>
+                        </tr>
+                        <tr>
+                            <th>@lang('quickadmin.employees.fields.department')</th>
+                            <td field-key='department'>{{ $employee->department->name }}</td>
                         </tr>
                         <tr>
                             <th>@lang('quickadmin.employees.fields.email')</th>

@@ -23,17 +23,43 @@
                 </a>
             </li>
             @endcan
-            
-            @can('employee_access')
-            <li class="{{ $request->segment(2) == 'employees' ? 'active' : '' }}">
-                <a href="{{ route('admin.employees.index') }}">
-                    <i class="fa fa-suitcase"></i>
-                    <span class="title">@lang('quickadmin.employees.title')</span>
+
+            @can('employee_management_access')
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-calendar-check-o"></i>
+                    <span class="title">@lang('quickadmin.employee-management.title')</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
+                <ul class="treeview-menu">
+                
+                @can('employee_access')
+                <li class="{{ $request->segment(2) == 'employees' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.employees.index') }}">
+                            <i class="fa fa-list-alt"></i>
+                            <span class="title">
+                                @lang('quickadmin.employees.title')
+                            </span>
+                        </a>
+                    </li>
+                @endcan
+                @can('department_access')
+                <li class="{{ $request->segment(2) == 'departments' ? 'active active-sub' : '' }}">
+                        <a href="{{ route('admin.departments.index') }}">
+                            <i class="fa fa-list-ul"></i>
+                            <span class="title">
+                                @lang('quickadmin.departments.title')
+                            </span>
+                        </a>
+                    </li>
+                @endcan
+                </ul>
             </li>
             @endcan
             
-            @can('task_management_access')
+            <!-- @can('task_management_access')
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-calendar-check-o"></i>
@@ -42,7 +68,7 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu"> -->
                 
                 @can('task_access')
                 <li class="{{ $request->segment(2) == 'tasks' ? 'active active-sub' : '' }}">
@@ -54,7 +80,7 @@
                         </a>
                     </li>
                 @endcan
-                @can('status_access')
+                <!-- @can('status_access')
                 <li class="{{ $request->segment(2) == 'statuses' ? 'active active-sub' : '' }}">
                         <a href="{{ route('admin.statuses.index') }}">
                             <i class="fa fa-list-ul"></i>
@@ -66,7 +92,8 @@
                 @endcan
                 </ul>
             </li>
-            @endcan
+            @endcan -->
+
             @can('contact_management_access')
             <li class="treeview">
                 <a href="#">

@@ -49,6 +49,18 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
+                    {!! Form::label('department_id', trans('quickadmin.employees.fields.department').'*', ['class' => 'control-label']) !!}
+                    {!! Form::select('department_id', $departments, old('department_id'), ['class' => 'form-control select2', 'required' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('department_id'))
+                        <p class="help-block">
+                            {{ $errors->first('department_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
                     {!! Form::label('email', trans('quickadmin.employees.fields.email').'*', ['class' => 'control-label']) !!}
                     {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => '', 'required' => '']) !!}
                     <p class="help-block"></p>

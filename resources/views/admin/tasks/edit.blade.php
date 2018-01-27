@@ -83,7 +83,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-xs-12 form-group">
                     {!! Form::label('status_id', trans('quickadmin.tasks.fields.status').'*', ['class' => 'control-label']) !!}
                     {!! Form::select('status_id', $statuses, old('status_id'), ['class' => 'form-control select2', 'required' => '']) !!}
@@ -94,7 +94,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
+            </div> -->
             
         </div>
     </div>

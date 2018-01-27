@@ -36,10 +36,10 @@
                             <th>@lang('quickadmin.tasks.fields.employee')</th>
                             <td field-key='employee'>{{ $task->employee->first_name or '' }}</td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th>@lang('quickadmin.tasks.fields.status')</th>
                             <td field-key='status'>{{ $task->status->name or '' }}</td>
-                        </tr>
+                        </tr> -->
                     </table>
                 </div>
             </div>

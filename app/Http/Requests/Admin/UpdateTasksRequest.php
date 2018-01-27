@@ -29,7 +29,7 @@ class UpdateTasksRequest extends FormRequest
             'start_time' => 'required|date_format:'.config('app.date_format').' H:i:s',
             'end_time' => 'required|date_format:'.config('app.date_format').' H:i:s',
             'employee_id' => 'required',
-            'status_id' => 'required',
+            // 'status_id' => 'required',
         ];
     }
 }

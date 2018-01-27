@@ -36,6 +36,7 @@
                         <th>@lang('quickadmin.employees.fields.first-name')</th>
                         <th>@lang('quickadmin.employees.fields.last-name')</th>
                         <th>@lang('quickadmin.employees.fields.job-title')</th>
+                        <th>@lang('quickadmin.employees.fields.department')</th>
                         <th>@lang('quickadmin.employees.fields.email')</th>
                         <th>@lang('quickadmin.employees.fields.phone')</th>
                         @if( request('show_deleted') == 1 )
@@ -57,28 +58,29 @@
                                 <td field-key='first_name'>{{ $employee->first_name }}</td>
                                 <td field-key='last_name'>{{ $employee->last_name }}</td>
                                 <td field-key='job_title'>{{ $employee->job_title }}</td>
+                                <td field-key='department'>{{ $employee->department->name }}</td>
                                 <td field-key='email'>{{ $employee->email }}</td>
                                 <td field-key='phone'>{{ $employee->phone }}</td>
                                 @if( request('show_deleted') == 1 )
                                 <td>
                                     @can('employee_delete')
-                                                                        {!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'POST',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.employees.restore', $employee->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
-                                    {!! Form::close() !!}
-                                @endcan
+                                        {!! Form::open(array(
+                                            'style' => 'display: inline-block;',
+                                            'method' => 'POST',
+                                            'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                            'route' => ['admin.employees.restore', $employee->id])) !!}
+                                        {!! Form::submit(trans('quickadmin.qa_restore'), array('class' => 'btn btn-xs btn-success')) !!}
+                                        {!! Form::close() !!}
+                                    @endcan
                                     @can('employee_delete')
-                                                                        {!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
-                                        'route' => ['admin.employees.perma_del', $employee->id])) !!}
-                                    {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                @endcan
+                                        {!! Form::open(array(
+                                            'style' => 'display: inline-block;',
+                                            'method' => 'DELETE',
+                                            'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                            'route' => ['admin.employees.perma_del', $employee->id])) !!}
+                                        {!! Form::submit(trans('quickadmin.qa_permadel'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                        {!! Form::close() !!}
+                                    @endcan
                                 </td>
                                 @else
                                 <td>

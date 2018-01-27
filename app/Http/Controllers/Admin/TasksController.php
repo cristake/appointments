@@ -47,7 +47,7 @@ class TasksController extends Controller
         }
         
         $equipment = \App\Equipment::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        $employees = \App\Employee::get()->pluck('first_name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $employees = \App\Employee::get()->pluck('full_name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $statuses = \App\Status::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         return view('admin.tasks.create', compact('equipment', 'employees', 'statuses'));
@@ -85,7 +85,7 @@ class TasksController extends Controller
         }
         
         $equipment = \App\Equipment::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
-        $employees = \App\Employee::get()->pluck('first_name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $employees = \App\Employee::get()->pluck('full_name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
         $statuses = \App\Status::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
         $task = Task::findOrFail($id);

@@ -3,7 +3,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTasksRequest extends FormRequest
+class StoreDepartmentsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,7 @@ class StoreTasksRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'equipment_id' => 'required',
-            'start_time' => 'required|date_format:'.config('app.date_format').' H:i:s',
-            'end_time' => 'required|date_format:'.config('app.date_format').' H:i:s',
-            'employee_id' => 'required',
-            // 'status_id' => 'required',
+            'name' => 'required',
         ];
     }
 }

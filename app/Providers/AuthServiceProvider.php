@@ -69,6 +69,11 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
 
+        // Auth gates for: Employee management
+        Gate::define('employee_management_access', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+
         // Auth gates for: Employees
         Gate::define('employee_access', function ($user) {
             return in_array($user->role_id, [1]);
@@ -183,6 +188,23 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1]);
         });
         Gate::define('status_delete', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+
+        // Auth gates for: Departments
+        Gate::define('department_access', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('department_create', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('department_edit', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('department_view', function ($user) {
+            return in_array($user->role_id, [1]);
+        });
+        Gate::define('department_delete', function ($user) {
             return in_array($user->role_id, [1]);
         });
 

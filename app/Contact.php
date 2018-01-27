@@ -35,6 +35,16 @@ class Contact extends Model
     {
         $this->attributes['company_id'] = $input ? $input : null;
     }
+
+    /**
+     * Get the contact's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
     
     public function company()
     {

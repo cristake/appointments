@@ -45,7 +45,10 @@ class EmployeesController extends Controller
         if (! Gate::allows('employee_create')) {
             return abort(401);
         }
-        return view('admin.employees.create');
+
+        $departments = \App\Department::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+
+        return view('admin.employees.create', compact('departments'));
     }
 
     /**
@@ -60,8 +63,7 @@ class EmployeesController extends Controller
             return abort(401);
         }
         $employee = Employee::create($request->all());
-
-
+        // dd($employee);
 
         return redirect()->route('admin.employees.index');
     }
@@ -80,7 +82,9 @@ class EmployeesController extends Controller
         }
         $employee = Employee::findOrFail($id);
 
-        return view('admin.employees.edit', compact('employee'));
+        $departments = \App\Department::get()->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+
+        return view('admin.employees.edit', compact('employee', 'departments'));
     }
 
     /**

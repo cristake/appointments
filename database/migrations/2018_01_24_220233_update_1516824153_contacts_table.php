@@ -40,7 +40,7 @@ Schema::table('contacts', function (Blueprint $table) {
             }
             
         });
-Schema::table('contacts', function (Blueprint $table) {
+        Schema::table('contacts', function (Blueprint $table) {
                         $table->string('skype')->nullable();
                 
         });

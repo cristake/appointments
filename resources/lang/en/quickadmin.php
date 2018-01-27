@@ -97,7 +97,8 @@ return [
 		'fields' => [
 			'name' => 'Name',
 			'color' => 'Color',
-			'is-available' => 'Is available',
+			'speed' => 'Speed',
+			'link' => 'Link',
 		],
 	],
 	

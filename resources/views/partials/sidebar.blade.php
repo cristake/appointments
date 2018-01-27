@@ -27,7 +27,7 @@
             @can('employee_management_access')
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-calendar-check-o"></i>
+                    <i class="fa fa-briefcase"></i>
                     <span class="title">@lang('quickadmin.employee-management.title')</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -38,7 +38,7 @@
                 @can('employee_access')
                 <li class="{{ $request->segment(2) == 'employees' ? 'active active-sub' : '' }}">
                         <a href="{{ route('admin.employees.index') }}">
-                            <i class="fa fa-list-alt"></i>
+                            <i class="fa fa-address-card"></i>
                             <span class="title">
                                 @lang('quickadmin.employees.title')
                             </span>
@@ -48,7 +48,7 @@
                 @can('department_access')
                 <li class="{{ $request->segment(2) == 'departments' ? 'active active-sub' : '' }}">
                         <a href="{{ route('admin.departments.index') }}">
-                            <i class="fa fa-list-ul"></i>
+                            <i class="fa fa-puzzle-piece"></i>
                             <span class="title">
                                 @lang('quickadmin.departments.title')
                             </span>

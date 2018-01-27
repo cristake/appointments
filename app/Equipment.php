@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @package App
  * @property string $name
- * @property tinyInteger $is_available
+ * @property tinyInteger $speed
+ * @property tinyInteger $link
 */
 class Equipment extends Model
 {
@@ -22,7 +23,7 @@ class Equipment extends Model
      */
     protected $table = 'equipments';
 
-    protected $fillable = ['name', 'color', 'is_available'];
+    protected $fillable = ['name', 'color', 'speed', 'link'];
     
     
     public static function boot()

@@ -40,7 +40,8 @@ class EquipmentsController extends Controller
                 'equipments.id',
                 'equipments.name',
                 'equipments.color',
-                'equipments.is_available',
+                'equipments.speed',
+                'equipments.link',
             ]);
 
             $table = Datatables::of($query);
@@ -57,12 +58,6 @@ class EquipmentsController extends Controller
                 return view($template, compact('row', 'gateKey', 'routeKey'));
             });
             
-            $table->editColumn('is_available', function ($row) {
-                return \Form::checkbox("is_available", 1, $row->is_available == 1, ["disabled"]);
-            });
-
-            $table->rawColumns(['actions','is_available']);
-
             return $table->make(true);
         }
 

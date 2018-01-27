@@ -35,7 +35,8 @@
 
                         <th>@lang('quickadmin.equipments.fields.name')</th>
                         <th>@lang('quickadmin.equipments.fields.color')</th>
-                        <th>@lang('quickadmin.equipments.fields.is-available')</th>
+                        <th>@lang('quickadmin.equipments.fields.speed')</th>
+                        <th>@lang('quickadmin.equipments.fields.link')</th>
                         @if( request('show_deleted') == 1 )
                         <th>&nbsp;</th>
                         @else
@@ -66,7 +67,8 @@
                         return '<span><div style="width:30px; height:15px; float:left; margin:3px 5px 0 0; background-color:'+data+';"></div>'+data+'</span>'
                     }
                 },
-                {data: 'is_available', name: 'is_available'},
+                {data: 'speed', name: 'speed'},
+                {data: 'link', name: 'link'},
                 
                 {data: 'actions', name: 'actions', searchable: false, sortable: false}
             ];
